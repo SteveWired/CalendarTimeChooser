@@ -173,7 +173,7 @@ Inherits Canvas
 		  g.AntiAlias = True
 		  
 		  // FILL BACKGROUND COLOR
-		  g.ForeColor =  &cFFFFFF
+		  g.ForeColor =  Color.FillColor
 		  g.FillRect (1,1,Me.Width-2,Me.Height-2)
 		  
 		  // DRAW CANVAS BORDER OUTLINE 
@@ -287,23 +287,23 @@ Inherits Canvas
 		    If CalendarButtonClassArray(i).Selected = True Then
 		      If SelectedYear.ToDouble = CurrentDate.Year And SelectMonthInt = CurrentDate.Month And CalendarButtonClassArray(i).Day = CurrentDate.Day Then
 		        g.bold = False
-		        g.ForeColor = &cFFFFFF
+		        g.ForeColor = Color.TextColor
 		      Else
 		        g.bold = False
-		        g.ForeColor = &cFFFFFF
+		        g.ForeColor = Color.TextColor
 		      End If
 		      
 		    Elseif CalendarButtonClassArray(i).NextMonthMark = True Or  CalendarButtonClassArray(i).PrevMonthMark = True Then
 		      g.bold = False
-		      g.ForeColor= RGB(170,170,170)
+		      g.ForeColor= Color.LightGray
 		      
-		    Elseif SelectedYear.ToDouble = CurrentDate.Year And SelectMonthInt = CurrentDate.Month And CalendarButtonClassArray(i).Day = CurrentDate.Day Then
+		    ElseIf SelectedYear.ToDouble = CurrentDate.Year And SelectMonthInt = CurrentDate.Month And CalendarButtonClassArray(i).Day = CurrentDate.Day Then
 		      g.bold = True
 		      g.ForeColor = &c1261A
 		      
 		    Else
 		      g.bold = False
-		      g.ForeColor = &c333333
+		      g.ForeColor = Color.TextColor
 		    End If
 		    
 		    // DRAW CALENDAR DAY DIGIT STRING

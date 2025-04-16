@@ -8,9 +8,10 @@ Begin ContainerControl Date_Time_Container
    DoubleBuffer    =   False
    Enabled         =   True
    EraseBackground =   False
-   HasBackColor    =   True
+   HasBackColor    =   False
    Height          =   272
    HelpTag         =   ""
+   Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
    LockBottom      =   False
@@ -111,16 +112,6 @@ End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  #Pragma Unused areas
-		  g.ForeColor = &cECECEC
-		  g.FillRect(0,0,me.Width,me.Height)
-		  
-		End Sub
-	#tag EndEvent
-
-
 	#tag Method, Flags = &h21
 		Private Sub changeLocalizedWindowTitle()
 		  // ** MUST DETACH FROM DEMO WINDOW
@@ -128,13 +119,13 @@ End
 		  If Window IsA DateTimeWindow Then
 		    
 		    If DateTimeWindow(Window).VisiblePickers = Date_Time_Container.PickerElements_CalendarAndClock Then
-		      TrueWindow.Title = Localized_ChooseBothTitle_Str
+		      Window.Title = Localized_ChooseBothTitle_Str
 		      
-		    Elseif DateTimeWindow(Window).VisiblePickers = Date_Time_Container.PickerElements_CalendarOnly Then
-		      TrueWindow.Title = Localized_CalendarOnlyTitle_Str
+		    ElseIf DateTimeWindow(Window).VisiblePickers = Date_Time_Container.PickerElements_CalendarOnly Then
+		      Window.Title = Localized_CalendarOnlyTitle_Str
 		      
 		    Elseif DateTimeWindow(Window).VisiblePickers =Date_Time_Container.PickerElements_ClockOnly Then
-		      TrueWindow.Title = Localized_TimeOnlyTitle_Str
+		      Window.Title = Localized_TimeOnlyTitle_Str
 		      
 		    End If
 		    
@@ -248,7 +239,7 @@ End
 		  if Window isa DateTimeWindow then
 		    window.Width = 416
 		    window.Height = 272
-		    TrueWindow.Title = Localized_ChooseBothTitle_Str
+		    Window.Title = Localized_ChooseBothTitle_Str
 		  end if
 		  
 		  Calendar_Container1.Enabled = True
@@ -269,7 +260,7 @@ End
 		Private Sub setupForCalendarPickerOnly()
 		  if window isa DateTimeWindow then
 		    window.Width = 250
-		    TrueWindow.Title = Localized_CalendarOnlyTitle_Str
+		    Window.Title = Localized_CalendarOnlyTitle_Str
 		  end if
 		  
 		  Calendar_Container1.Enabled = True
@@ -286,7 +277,7 @@ End
 		  if window isa DateTimeWindow then
 		    window.Width = 176
 		    window.Height = 272
-		    TrueWindow.Title = Localized_TimeOnlyTitle_Str
+		    Window.Title = Localized_TimeOnlyTitle_Str
 		  end if
 		  
 		  Time_Container1.Enabled = True
@@ -691,6 +682,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="Index"
+		Visible=true
+		Group="ID"
+		InitialValue="-2147483648"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="AllowAutoDeactivate"
 		Visible=true

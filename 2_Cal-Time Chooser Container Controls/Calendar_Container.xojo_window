@@ -230,7 +230,7 @@ Begin ContainerControl Calendar_Container
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   226
-      Transparent     =   True
+      Transparent     =   False
       Visible         =   True
       Width           =   150
    End
@@ -297,15 +297,6 @@ End
 		    Me.EraseBackground = False
 		  #ENDIF
 		  
-		  
-		End Sub
-	#tag EndEvent
-
-	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
-		  #Pragma Unused areas
-		  g.ForeColor = &cECECEC 
-		  g.FillRect(0,0,me.Width,me.Height)
 		  
 		End Sub
 	#tag EndEvent
