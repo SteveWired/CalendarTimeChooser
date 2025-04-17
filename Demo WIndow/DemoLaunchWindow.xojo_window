@@ -1311,27 +1311,44 @@ End
 		  
 		  // Chooser Type:
 		  CalTimeChooser.VisiblePickers = Date_Time_Container.PickerElements_CalendarAndClock
+		  
 		  // Chooser Time Format
 		  CalTimeChooser.TimeMode = 12
+		  
 		  // Chooser Clock Face Type
 		  CalTimeChooser.ClockFaceType = Date_Time_Container.ClockFaceType_Chrome
+		  
 		  // Chooser Clock Hands Type
 		  CalTimeChooser.UseGraphicalClockHands= True
+		  
 		  // Chooser Calendar Column Lines
 		  CalTimeChooser.drawColSeperatorLines = True
+		  
 		  // Chooser Week Start
 		  CalTimeChooser.WeekStartsOnMonday = False
+		  
 		  // Chooser Calendar to include previous/next days on calendar
 		  CalTimeChooser.IncludePrevNextMonthDays = True
+		  
 		  // Calendar Localization
 		  CalTimeChooser.LocalizationInt = 0 // 0-English (See page 12 for definitions)
+		  
 		  // Allow User to Select Multiple Calendar Days
 		  CalTimeChooser.AllowMultipleCalendarSelections = False
+		  
 		  // Calendar Start Year:: This date integer is your calendar's start date
 		  CalTimeChooser.StartYear = 1975
 		  CalTimeChooser.EndYear = 2052
 		  
+		  // Set starting selection to a date other than today
+		  'Dim d As New date // Currently using old API 1 dates.
+		  'd.year = 2022 // For example
+		  'CalTimeChooser.SetCalendarStartDate(d)
+		  
+		  // Show as Popover
 		  CalTimeChooser.ShowPopover(Me)
+		  
+		  // Show as regular Window
 		  'CalTimeChooser.show // use this if you don't want a popover
 		End Sub
 	#tag EndEvent
