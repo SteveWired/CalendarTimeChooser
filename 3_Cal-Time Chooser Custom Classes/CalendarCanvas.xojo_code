@@ -1,5 +1,5 @@
 #tag Class
-Protected Class Calendar
+Protected Class CalendarCanvas
 Inherits Canvas
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
@@ -287,10 +287,10 @@ Inherits Canvas
 		    If CalendarButtonClassArray(i).Selected = True Then
 		      If SelectedYear.ToDouble = CurrentDate.Year And SelectMonthInt = CurrentDate.Month And CalendarButtonClassArray(i).Day = CurrentDate.Day Then
 		        g.bold = False
-		        g.ForeColor = Color.TextColor
+		        g.ForeColor = Color.White
 		      Else
 		        g.bold = False
-		        g.ForeColor = Color.TextColor
+		        g.ForeColor = Color.White
 		      End If
 		      
 		    Elseif CalendarButtonClassArray(i).NextMonthMark = True Or  CalendarButtonClassArray(i).PrevMonthMark = True Then

@@ -58,7 +58,7 @@ Begin ContainerControl Calendar_Container
       Visible         =   True
       Width           =   70
    End
-   Begin Calendar Calendar1
+   Begin CalendarCanvas Calendar1
       AcceptFocus     =   False
       AcceptTabs      =   False
       AllowMultipleSelections=   False
@@ -117,7 +117,7 @@ Begin ContainerControl Calendar_Container
       TabStop         =   True
       TodaysDate_NotSelected=   &c0000FF00
       TodaysDate_Selected=   &cFFFF0000
-      Top             =   43
+      Top             =   44
       Transparent     =   False
       UseFocusRing    =   True
       UserSelectedEndYear=   0
@@ -142,7 +142,7 @@ Begin ContainerControl Calendar_Container
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
-         Top             =   66
+         Top             =   67
          Transparent     =   True
          Visible         =   True
          Width           =   205
