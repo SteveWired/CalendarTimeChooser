@@ -173,7 +173,12 @@ Inherits Canvas
 		  g.AntiAlias = True
 		  
 		  // FILL BACKGROUND COLOR
-		  g.ForeColor =  Color.FillColor
+		  If Color.IsDarkMode Then
+		    g.ForeColor =  Color.FillColor
+		  Else
+		    g.ForeColor = Color.White
+		  End If
+		  
 		  g.FillRect (1,1,Me.Width-2,Me.Height-2)
 		  
 		  // DRAW CANVAS BORDER OUTLINE 
