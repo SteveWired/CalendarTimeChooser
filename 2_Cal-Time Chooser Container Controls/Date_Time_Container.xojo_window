@@ -3,12 +3,12 @@ Begin ContainerControl Date_Time_Container
    AcceptFocus     =   False
    AcceptTabs      =   True
    AutoDeactivate  =   True
-   BackColor       =   &c9D9D9D00
+   BackColor       =   &cFFFFFF00
    Backdrop        =   0
    DoubleBuffer    =   False
    Enabled         =   True
    EraseBackground =   False
-   HasBackColor    =   False
+   HasBackColor    =   True
    Height          =   272
    HelpTag         =   ""
    Index           =   -2147483648

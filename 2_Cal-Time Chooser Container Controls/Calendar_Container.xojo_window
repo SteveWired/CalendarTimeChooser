@@ -8,7 +8,7 @@ Begin ContainerControl Calendar_Container
    DoubleBuffer    =   False
    Enabled         =   True
    EraseBackground =   False
-   HasBackColor    =   False
+   HasBackColor    =   True
    Height          =   252
    HelpTag         =   ""
    Index           =   -2147483648
