@@ -109,7 +109,16 @@ Inherits Canvas
 		            MonthToAdvance = "Prev"
 		            
 		          End If
-		          SelectedDate.Year = SelectedYear.ToDouble
+		          
+		          // Set year correctly for prev / next month clicks
+		          If MonthToAdvance = "Prev" And SelectedMonth = "January" Then
+		            SelectedDate.Year = SelectedYear.ToDouble - 1
+		          ElseIf MonthToAdvance = "Next" And SelectedMonth = "December" Then
+		            SelectedDate.Year = SelectedYear.ToDouble + 1
+		          Else
+		            SelectedDate.Year = SelectedYear.ToDouble
+		          End If
+		          
 		          CalendarButtonClassArray(i).SelectedDate = SelectedDate
 		          
 		          If MonthToAdvance = "Next" Or MonthToAdvance = "Prev" Then
