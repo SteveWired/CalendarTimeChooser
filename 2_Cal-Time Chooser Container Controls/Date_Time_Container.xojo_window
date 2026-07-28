@@ -112,6 +112,29 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Close()
+		  // 2026r2 Windows regression: destroying a Container that still owns a running Timer
+		  // throws an uncaught NilObjectException on Windows. Xojo reworked Container teardown
+		  // (#58514) and fixed the resulting NOE for macOS only (#81461); Windows is still broken.
+		  // Stop our timers BEFORE the framework tears this container down.
+		  StopChooserTimers
+		End Sub
+	#tag EndEvent
+
+	#tag Method, Flags = &h0
+		Sub StopChooserTimers()
+		  // See the Close event. Safe to call from any close/selection path.
+		  ClockSecondHandTimer.Mode = Timer.ModeOff
+		  ClockSecondHandTimer.Enabled = False
+
+		  If Time_Container1 <> Nil Then
+		    Time_Container1.clockColonFlashTimer.Mode = Timer.ModeOff
+		    Time_Container1.clockColonFlashTimer.Enabled = False
+		  End If
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub changeLocalizedWindowTitle()
 		  // ** MUST DETACH FROM DEMO WINDOW
@@ -634,9 +657,13 @@ End
 		  
 		  // THIS EVENT IS PASSED THE SELECTED DATE AS A DATE OBJECT
 		  
+		  // Stop timers BEFORE the MsgBox below steals focus and auto-closes this popover.
+		  // (2026r2 Windows Container-teardown regression -- see the Close event / StopChooserTimers.)
+		  StopChooserTimers
+
 		  // EXAMPLE RESULTS USAGE:
 		  //MsgBox "The selected date is: " + inSelectedDate.SQLDateTime
-		  MsgBox "The selected date is: " + inSelectedDate.AbbreviatedDate 
+		  MsgBox "The selected date is: " + inSelectedDate.AbbreviatedDate
 		  
 		  
 		End Sub
